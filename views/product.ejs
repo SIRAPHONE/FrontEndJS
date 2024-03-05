@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a href="/">PRODUCTS</a>
+        </div>
+        <div class="content">
+            <h1>PRODUCTS</h1>
+            <a href="/books_post">Add Product</a>
+            <table>
+                <tr>
+                    <th>ProductID</th>
+                    <th>ProductName</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>StockQuantity</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <% for(let i=0; i < products.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= products[i].ProductID %>
+                        </td>
+                        <td>
+                            <%= products[i].ProductName %>
+                        </td>
+                        <td>
+                            <%= products[i].Description %>
+                        </td>
+                        <td>
+                            <%= products[i].Price %>
+                        </td>
+                        <td>
+                            <%= products[i].StockQuantity %>
+                        </td>
+                        <td>
+                            <a href="/#/<%= products[i].id %>">Edit</a>
+                        </td>
+                        <td>
+                            <a href="/#/<%= products[i].id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
