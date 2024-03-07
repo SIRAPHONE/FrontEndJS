@@ -1,0 +1,27 @@
+<!-- create.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Product</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Create Product</h1>
+    <form method="post" action="/create_P">
+      <label for="ProductName">ProductName:</label>
+      <input type="text" id="ProductName" name="ProductName" />
+      <br />
+      <label for="Description">Description:</label>
+      <input type="text" id="Description" name="Description" />
+      <br />
+      <label for="Price">Price:</label>
+      <input type="text" id="Price" name="Price" />
+      <br />
+      <label for="StockQuantity">StockQuantity:</label>
+      <input type="text" id="StockQuantity" name="StockQuantity" />
+      <br />
+      <input type="submit" value="create" />
+    </form>
+      <a href="/products">Back to List</a>
+  </body>
+</html>

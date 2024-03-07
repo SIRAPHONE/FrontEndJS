@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Customer</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Update Customer</h1>
+    <form method="post" action="/update_C/<%=  customer.CustomerID %>">
+      <label for="Firstname">Firstname:</label>
+      <input type="text" id="Firstname" name="Firstname" value="<%= customer.Firstname %>" />
+      <br />
+      <label for="Lastname">Lastname:</label>
+      <input type="text" id="Lastname" name="Lastname" value="<%= customer.Lastname %>" />
+      <br />
+      <label for="Email">Email:</label>
+      <input type="text" id="Email" name="Email" value="<%= customer.Email %>" />
+      <br />
+      <label for="Phone">Phone:</label>
+      <input type="text" id="Phone" name="Phone" value="<%= customer.Phone %>" />
+      <br />
+      <input type="submit" value="Update" />
+    </form>
+    <center>
+      <a href="/customers/<%= customer.customers %>">View</a>
+      <a href="/customers">Back to List</a>
+    </center>
+  </body>
+</html>

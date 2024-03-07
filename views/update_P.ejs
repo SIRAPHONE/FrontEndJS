@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Product</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Update Product</h1>
+    <form method="post" action="/update_P/<%=  product.ProductID %>">
+      <label for="ProductName">ProductName:</label>
+      <input type="text" id="ProductName" name="ProductName" value="<%=  product.ProductName %>" />
+      <br />
+      <label for="Description">Description:</label>
+      <input type="text" id="Description" name="Description" value="<%=  product.Description %>" />
+      <br />
+      <label for="Price">Price:</label>
+      <input type="text" id="Price" name="Price" value="<%=  product.Price %>" />
+      <br />
+      <label for="StockQuantity">StockQuantity:</label>
+      <input type="text" id="StockQuantity" name="StockQuantity" value="<%=  product.StockQuantity %>" />
+      <br />
+      <input type="submit" value="Update" />
+    </form>
+    <center>
+      <a href="/products/<%=  product.products %>">View</a>
+      <a href="/products">Back to List</a>
+    </center>
+  </body>
+</html>

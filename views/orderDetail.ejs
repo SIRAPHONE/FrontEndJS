@@ -12,11 +12,11 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <a href="/">ORDERDETAIL</a>
+            <a href="/"></a>
         </div>
         <div class="content">
             <h1>ORDERDETAIL</h1>
-            <a href="/books_post">Add OrderDetail</a>
+            <a href="/create_OD">Add OrderDetail</a>
             <table>
                 <tr>
                     <th>OrderDetailID</th>
@@ -27,29 +27,29 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <% for(let i=0; i < OrderDetails.length; i++) { %>
+                <% for(let i=0; i < orderDetails.length; i++) { %>
                     <tr>
                         <td>
-                            <%= OrderDetails[i].OrderDetailID %>
+                            <%= orderDetails[i].OrderDetailID %>
                         </td>
                         <td>
-                            <%= OrderDetails[i].OrderID %>
+                            <%= orderDetails[i].OrderID %>
                         </td>
                         <td>
-                            <%= OrderDetails[i].ProductID %>
+                            <%= orderDetails[i].ProductID %>
                         </td>
                         <td>
-                            <%= OrderDetails[i].Quantity %>
+                            <%= orderDetails[i].Quantity %>
                         </td>
                         <td>
-                            <%= OrderDetails[i].Subtotal %>
+                            <%= orderDetails[i].Subtotal %>
                         </td>
                         
                         <td>
-                            <a href="/#/<%= OrderDetails[i].id %>">Edit</a>
+                            <a href="/update_OD/<%= orderDetails[i].OrderDetailID %>">Edit</a>
                         </td>
                         <td>
-                            <a href="/#/<%= OrderDetails[i].id %>">Delete</a>
+                            <a href="/deleteOD/<%= orderDetails[i].OrderDetailID %>">Delete</a>
                         </td>
                     </tr>
                     <% } %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update OrderDetail</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Update OrderDetail</h1>
+    <form method="post" action="/update_OD/<%=  orderDetail.OrderDetailID %>">
+        <label for="OrderID">OrderID:</label>
+        <input type="text" id="OrderID" name="OrderID" value="<%=  orderDetail.OrderID %>" />
+        <br />
+        <label for="ProductID">ProductID:</label>
+        <input type="text" id="ProductID" name="ProductID" value="<%=  orderDetail.ProductID %>" />
+        <br />
+        <label for="Quantity">Quantity:</label>
+        <input type="text" id="Quantity" name="Quantity" value="<%=  orderDetail.Quantity %>" />
+        <br />
+        <label for="Subtotal">Subtotal:</label>
+        <input type="text" id="Subtotal" name="Subtotal" value="<%=  orderDetail.Subtotal %>" />
+        <br />
+        <input type="submit" value="Update" />
+      </form>
+      <center>
+        <a href="/orderDetails/<%=  orderDetail.orderDetails %>">View</a>
+        <a href="/OrderDetails">Back to List</a>
+      </center>
+  </body>
+</html>

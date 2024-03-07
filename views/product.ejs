@@ -12,11 +12,11 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <a href="/">PRODUCTS</a>
+
         </div>
         <div class="content">
             <h1>PRODUCTS</h1>
-            <a href="/books_post">Add Product</a>
+            <a href="/create_P">Add Product</a>
             <table>
                 <tr>
                     <th>ProductID</th>
@@ -45,10 +45,10 @@
                             <%= products[i].StockQuantity %>
                         </td>
                         <td>
-                            <a href="/#/<%= products[i].id %>">Edit</a>
+                            <a href="/update_P/ <%= products[i].ProductID %>">Edit</a>
                         </td>
                         <td>
-                            <a href="/#/<%= products[i].id %>">Delete</a>
+                            <a href="/deleteP/<%= products[i].ProductID %>">Delete</a>
                         </td>
                     </tr>
                     <% } %>

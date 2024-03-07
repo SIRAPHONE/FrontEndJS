@@ -12,11 +12,11 @@
 <body>
     <div class="container">
         <div class="sidebar">
-            <a href="/">CUSTOMERS</a>
+            <a href="/"></a>
         </div>
         <div class="content">
-            <h1>CUSTOMERS</h1>
-            <a href="/books_post">Add Customer</a>
+            <h1>CUSTOMER</h1>
+            <a href="/create_C">Add Customer</a>
             <table>
                 <tr>
                     <th>CustomerID</th>
@@ -27,28 +27,28 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <% for(let i=0; i < Customers.length; i++) { %>
+                <% for(let i=0; i < customer.length; i++) { %>
                     <tr>
                         <td>
-                            <%= Customers[i].CustomerID %>
+                            <%= customer[i].CustomerID %>
                         </td>
                         <td>
-                            <%= Customers[i].Firstname %>
+                            <%= customer[i].Firstname %>
                         </td>
                         <td>
-                            <%= Customers[i].Lastname %>
+                            <%= customer[i].Lastname %>
                         </td>
                         <td>
-                            <%= Customers[i].Email %>
+                            <%= customer[i].Email %>
                         </td>
                         <td>
-                            <%= Customers[i].Phone %>
+                            <%= customer[i].Phone %>
                         </td>
                         <td>
-                            <a href="/#/<%= Customers[i].id %>">Edit</a>
+                            <a href="/update_C/<%= customer[i].CustomerID %>">Edit</a>
                         </td>
                         <td>
-                            <a href="/#/<%= Customers[i].id %>">Delete</a>
+                            <a href="/deleteC/<%= customer[i].CustomerID %>">Delete</a>
                         </td>
                     </tr>
                     <% } %>

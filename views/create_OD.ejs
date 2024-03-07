@@ -1,0 +1,27 @@
+<!-- create.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create OrderDetail</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Create OrderDetail</h1>
+    <form method="post" action="/create_OD">
+      <label for="OrderID">OrderID:</label>
+      <input type="text" id="OrderID" name="OrderID" />
+      <br />
+      <label for="ProductID">ProductID:</label>
+      <input type="text" id="ProductID" name="ProductID" />
+      <br />
+      <label for="Quantity">Quantity:</label>
+      <input type="text" id="Quantity" name="Quantity" />
+      <br />
+      <label for="Subtotal">Subtotal:</label>
+      <input type="text" id="Subtotal" name="Subtotal" />
+      <br />
+      <input type="submit" value="create" />
+    </form>
+      <a href="/orderDetails">Back to List</a>
+  </body>
+</html>
