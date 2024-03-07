@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a href="/">ORDERDETAIL</a>
+        </div>
+        <div class="content">
+            <h1>ORDERDETAIL</h1>
+            <a href="/books_post">Add OrderDetail</a>
+            <table>
+                <tr>
+                    <th>OrderDetailID</th>
+                    <th>OrderID</th>
+                    <th>ProductID</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <% for(let i=0; i < OrderDetails.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= OrderDetails[i].OrderDetailID %>
+                        </td>
+                        <td>
+                            <%= OrderDetails[i].OrderID %>
+                        </td>
+                        <td>
+                            <%= OrderDetails[i].ProductID %>
+                        </td>
+                        <td>
+                            <%= OrderDetails[i].Quantity %>
+                        </td>
+                        <td>
+                            <%= OrderDetails[i].Subtotal %>
+                        </td>
+                        
+                        <td>
+                            <a href="/#/<%= OrderDetails[i].id %>">Edit</a>
+                        </td>
+                        <td>
+                            <a href="/#/<%= OrderDetails[i].id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <a href="/">CUSTOMERS</a>
+        </div>
+        <div class="content">
+            <h1>CUSTOMERS</h1>
+            <a href="/books_post">Add Customer</a>
+            <table>
+                <tr>
+                    <th>CustomerID</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <% for(let i=0; i < Customers.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= Customers[i].CustomerID %>
+                        </td>
+                        <td>
+                            <%= Customers[i].Firstname %>
+                        </td>
+                        <td>
+                            <%= Customers[i].Lastname %>
+                        </td>
+                        <td>
+                            <%= Customers[i].Email %>
+                        </td>
+                        <td>
+                            <%= Customers[i].Phone %>
+                        </td>
+                        <td>
+                            <a href="/#/<%= Customers[i].id %>">Edit</a>
+                        </td>
+                        <td>
+                            <a href="/#/<%= Customers[i].id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
