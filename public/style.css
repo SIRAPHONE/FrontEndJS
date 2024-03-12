@@ -1,3 +1,27 @@
+/*NavBar*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #2C3E50;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
 /* Set font family and size for the whole page */
 body {
     font-family: 'Open Sans', sans-serif;
@@ -122,11 +146,15 @@ body {
     text-align: left;
     padding: 16px;
   }
-  
   .container {
     display: grid;
+    grid-template-columns: 1fr;
+}
+  
+  /* .container {
+    display: grid;
     grid-template-columns: 200px 1fr;
-  }
+  } */
   
   .sidebar {
     display: flex;
