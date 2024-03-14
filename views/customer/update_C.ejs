@@ -7,11 +7,8 @@
   <body>
     <h1>Update Customer</h1>
     <form method="post" action="/update_C/<%=  customer.CustomerID %>">
-      <label for="Firstname">Firstname:</label>
-      <input type="text" id="Firstname" name="Firstname" value="<%= customer.Firstname %>" />
-      <br />
-      <label for="Lastname">Lastname:</label>
-      <input type="text" id="Lastname" name="Lastname" value="<%= customer.Lastname %>" />
+      <label for="Firstname">Customer Name:</label>
+      <input type="text" id="C" name="customerName" value="<%= customer.CustomerName %>" />
       <br />
       <label for="Email">Email:</label>
       <input type="text" id="Email" name="Email" value="<%= customer.Email %>" />

@@ -17,12 +17,12 @@ const base_url = "http://localhost:3000";
  //////////////// get
 app.get('/products', async (req, res) => {
     const products = await axios.get(base_url + '/products');
-    res.render('product', { products: products.data });
+    res.render('product/product', { products: products.data });
 });
 
 app.get('/orders', async (req, res) => {
     const orders = await axios.get(base_url + '/orders');
-    res.render('order', { orders: orders.data });
+    res.render('order/order', { orders: orders.data });
 });
 
 app.get('/orderDetails', async (req, res) => {
@@ -32,15 +32,15 @@ app.get('/orderDetails', async (req, res) => {
 
 app.get('/customers', async (req, res) => {
     const customers = await axios.get(base_url + '/customers');
-    res.render('customer', { customer: customers.data });
+    res.render('customer/customer', { customer: customers.data });
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
  //////////////// Create
  //////////////////////////////////Product
 
-app.get("/create_P", (req, res) => {
-    res.render("create_P");
+app.get("/product/create_P", (req, res) => {
+    res.render("product/create_P");
   });
   
   app.post("/create_P", async (req, res) => {
@@ -54,13 +54,18 @@ app.get("/create_P", (req, res) => {
     }
   });
 //////////////////////////////////Order
-  app.get("/create_O", (req, res) => {
-    res.render("create_O");
+  app.get("/order/create_O", (req, res) => {
+    
+    res.render("order/create_O");
   });
   
   app.post("/create_O", async (req, res) => {
     try {
-      const data = { CustomerID: req.body.CustomerID,OrderdateID: req.body.OrderdateID,TotalAmoount: req.body.TotalAmoount};
+      const data = { 
+        CustomerID: req.body.CustomerID,
+        OrderdateID: req.body.OrderdateID,
+        TotalAmoount: req.body.TotalAmoount
+      };
       await axios.post(base_url + '/orders', data);
       res.redirect("/orders");
     } catch (err) {
@@ -99,18 +104,22 @@ app.get("/create_P", (req, res) => {
   
   //////////////////////////////////Customer
 
-  app.get("/create_C", (req, res) => {
-    res.render("create_C");
+  app.get("/customer/create_C", (req, res) => {
+    res.render("customer/create_C");
   });
   
   app.post("/create_C", async (req, res) => {
     try {
-      const data = { Firstname: req.body.Firstname,Lastname: req.body.Lastname,Email: req.body.Email,Phone: req.body.Phone};
+      const data = { 
+        CustomerName: req.body.customerName,
+        Email: req.body.Email,
+        Phone: req.body.Phone
+      };
       await axios.post(base_url + '/customers', data);
       res.redirect("/customers");
     } catch (err) {
       console.error(err);
-      res.status(500).send('Error');
+      res.status(500).send('Error 500');
     }
   });
   
@@ -121,7 +130,7 @@ app.get("/update_P/:id", async (req, res) => {
     try {
         const response = await axios.get(
             base_url + '/products/' + req.params.id);
-        res.render("update_P", { product: response.data });
+        res.render("product/update_P", { product: response.data });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error');
@@ -183,11 +192,12 @@ app.get("/update_P/:id", async (req, res) => {
     }
   });
 //////////////////////////////////Customer
-app.get("/update_C/:id", async (req, res) => {
+app.get("/customer/update_C/:id", async (req, res) => {
   try {
+      console.log(req);
       const response = await axios.get(
           base_url + '/customers/' + req.params.id);
-      res.render("update_C", { customer: response.data });
+      res.render("customer/update_C", { customer: response.data });
   } catch (err) {
       console.error(err);
       res.status(500).send('Error');
@@ -196,7 +206,10 @@ app.get("/update_C/:id", async (req, res) => {
 
 app.post("/update_C/:id", async (req, res) => {
   try {
-    const data = {Firstname: req.body.Firstname,Lastname: req.body.Lastname,Email: req.body.Email,Phone: req.body.Phone};
+    const data = {
+      CustomerName: req.body.customerName,
+      Email: req.body.Email,
+      Phone: req.body.Phone};
     await axios.put(base_url + '/customers/' + req.params.id, data);
     res.redirect("/customers");
   } catch (err) {
@@ -238,7 +251,7 @@ app.get('/deleteOD/:id', async (req, res) => {
   }
 });
 //////////////////////////////////customer
-app.get('/deleteC/:id', async (req, res) => {
+app.get('/customer/deleteC/:id', async (req, res) => {
   try {
       await axios.delete(base_url + "/customers/" + req.params.id);
       res.redirect('/customers');

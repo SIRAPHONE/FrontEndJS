@@ -20,12 +20,11 @@
     <div class="container">
         <div class="content">
             <h1>CUSTOMER</h1>
-            <a href="/create_C">Add Customer</a>
+            <a href="customer/create_C">Add Customer</a>
             <table>
                 <tr>
                     <th>CustomerID</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
+                    <th>Customer Name</th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Edit</th>
@@ -37,10 +36,7 @@
                             <%= customer[i].CustomerID %>
                         </td>
                         <td>
-                            <%= customer[i].Firstname %>
-                        </td>
-                        <td>
-                            <%= customer[i].Lastname %>
+                            <%= customer[i].CustomerName %>
                         </td>
                         <td>
                             <%= customer[i].Email %>
@@ -49,10 +45,10 @@
                             <%= customer[i].Phone %>
                         </td>
                         <td>
-                            <a href="/update_C/<%= customer[i].CustomerID %>">Edit</a>
+                            <a href="customer/update_C/<%= customer[i].CustomerID %>">Edit</a>
                         </td>
                         <td>
-                            <a href="/deleteC/<%= customer[i].CustomerID %>">Delete</a>
+                            <a href="customer/deleteC/<%= customer[i].CustomerID %>">Delete</a>
                         </td>
                     </tr>
                     <% } %>

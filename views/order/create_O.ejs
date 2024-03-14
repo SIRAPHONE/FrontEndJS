@@ -1,0 +1,29 @@
+<!-- create.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Order</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Create Order</h1>
+    <form method="post" action="/create_O">
+        <!-- <label for="OrderID">OrderID:</label>
+        <input type="text" id="OrderID" name="OrderID" /> -->
+      <label for="CustomerID">ชื่อลูกค้า</label>
+      <select name="CustomerName" id="CustomerName"></select>
+      <br />
+      <label for="OrderdateID">สินค้า</label>
+      <select name="Product" id="Product"></select>
+      <br />
+      <label for="TotalAmoount">จำนวนสินค้า</label>
+      <input type="text" id="TotalAmoount" name="TotalAmoount" />
+
+      <label for="TotalAmoount">จำนวน</label>
+      <input type="text" id="TotalAmoount" name="TotalAmoount" />
+      <br />
+      <input type="submit" value="create" />
+    </form>
+      <a href="/orders">Back to List</a>
+  </body>
+</html>

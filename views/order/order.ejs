@@ -20,13 +20,14 @@
     <div class="container">
         <div class="content">
             <h1>ORDERS</h1>
-            <a href="/create_O">Add Order</a>
+            <a href="order/create_O">Add Order</a>
             <table>
                 <tr>
                     <th>OrderID</th>
-                    <th>CustomerID</th>
-                    <th>OrderdateID</th>
-                    <th>TotalAmoount</th>
+                    <th>ชื่อลูกค้า</th>
+                    <th>จำนวนสินค้า</th>
+                    <th>ราคารวม</th>
+                    <th>OrderDetail</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -39,10 +40,13 @@
                             <%= orders[i].CustomerID %>
                         </td>
                         <td>
+                            <%= orders[i].CustomerID %>
+                        </td>
+                        <td>
                             <%= orders[i].OrderdateID %>
                         </td>
                         <td>
-                            <%= orders[i].TotalAmoount %>
+                            <a href="/update_O/<%= orders[i].OrderID %>">Detail</a>
                         </td>
                         <td>
                             <a href="/update_O/<%= orders[i].OrderID %>">Edit</a>
