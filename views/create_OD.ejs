@@ -1,4 +1,4 @@
-<!-- create.ejs -->
+create.ejs
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +12,12 @@
       <input type="text" id="OrderID" name="OrderID" />
       <br />
       <label for="ProductID">ProductID:</label>
-      <input type="text" id="ProductID" name="ProductID" />
+      <!-- <input type="text" id="ProductID" name="ProductID" /> -->
+      <select id="shelf_id" name="shelf_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <% for(let i = 0; i < products.length; i++) { %>
+            <option value="<%= products[i].shelf_id %>"><%= products[i].category %></option>
+        <% } %>
+    </select>
       <br />
       <label for="Quantity">Quantity:</label>
       <input type="text" id="Quantity" name="Quantity" />

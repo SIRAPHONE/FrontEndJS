@@ -37,6 +37,7 @@ app.get('/customers', async (req, res) => {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
  //////////////// Create
+ //////////////////////////////////Product
 
 app.get("/create_P", (req, res) => {
     res.render("create_P");
@@ -52,7 +53,7 @@ app.get("/create_P", (req, res) => {
       res.status(500).send('Error');
     }
   });
-
+//////////////////////////////////Order
   app.get("/create_O", (req, res) => {
     res.render("create_O");
   });
@@ -67,9 +68,20 @@ app.get("/create_P", (req, res) => {
       res.status(500).send('Error');
     }
   });
+  //////////////////////////////////Orderdetail
 
   app.get("/create_OD", (req, res) => {
     res.render("create_OD");
+  });
+
+  app.get('/create_OD', async (req, res) => {
+    try {
+      const response = await axios.get(base_url + '/products');
+      res.render('create_OD', { products: products }); // ส่งข้อมูลผลิตภัณฑ์ไปยังเทมเพลต
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error');
+    }
   });
   
   app.post("/create_OD", async (req, res) => {
@@ -82,6 +94,10 @@ app.get("/create_P", (req, res) => {
       res.status(500).send('Error');
     }
   });
+
+  
+  
+  //////////////////////////////////Customer
 
   app.get("/create_C", (req, res) => {
     res.render("create_C");
@@ -100,6 +116,7 @@ app.get("/create_P", (req, res) => {
   
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
  //////////////// Update
+//////////////////////////////////Product
 app.get("/update_P/:id", async (req, res) => {
     try {
         const response = await axios.get(
@@ -121,7 +138,7 @@ app.get("/update_P/:id", async (req, res) => {
       res.status(500).send("Error");
     }
   });
-
+//////////////////////////////////Order
   app.get("/update_O/:id", async (req, res) => {
     try {
         const response = await axios.get(
@@ -143,7 +160,7 @@ app.get("/update_P/:id", async (req, res) => {
       res.status(500).send("Error");
     }
   });
-
+//////////////////////////////////orderDetail
   app.get("/update_OD/:id", async (req, res) => {
     try {
         const response = await axios.get(
@@ -165,7 +182,7 @@ app.get("/update_P/:id", async (req, res) => {
       res.status(500).send("Error");
     }
   });
-
+//////////////////////////////////Customer
 app.get("/update_C/:id", async (req, res) => {
   try {
       const response = await axios.get(
@@ -190,7 +207,7 @@ app.post("/update_C/:id", async (req, res) => {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
  //////////////// Delete
-
+//////////////////////////////////Product
 app.get('/deleteP/:id', async (req, res) => {
   try {
       await axios.delete(base_url + "/products/" + req.params.id);
@@ -200,7 +217,7 @@ app.get('/deleteP/:id', async (req, res) => {
       console.log(err.message);
   }
 });
-
+//////////////////////////////////Order
 app.get('/deleteO/:id', async (req, res) => {
   try {
       await axios.delete(base_url + "/orders/" + req.params.id);
@@ -210,7 +227,7 @@ app.get('/deleteO/:id', async (req, res) => {
       console.log(err.message);
   }
 });
-
+//////////////////////////////////orderDetail
 app.get('/deleteOD/:id', async (req, res) => {
   try {
       await axios.delete(base_url + "/orderDetails/" + req.params.id);
@@ -220,7 +237,7 @@ app.get('/deleteOD/:id', async (req, res) => {
       console.log(err.message);
   }
 });
-
+//////////////////////////////////customer
 app.get('/deleteC/:id', async (req, res) => {
   try {
       await axios.delete(base_url + "/customers/" + req.params.id);
