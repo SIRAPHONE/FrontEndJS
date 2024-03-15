@@ -25,6 +25,17 @@
                 <% } %>
             </select>
 			<br />
+			<label for="ProductID">Promotion Code:</label>
+
+			<select name="PromotionID" id="" ">
+                <% for(let i=0; i < promotion.length; i++) { 
+					var selected = (promotion[i].PromotionID == order.PromotionID) ? 'selected' : '';
+					%>
+                        <option  <%= selected %> value="<%= promotion[i].PromotionID %>"><%= promotion[i].PromotionCode %></option>
+                <% } %>
+            </select>
+			<br />
+
 			<label for="TotalAmoount">TotalAmount:</label>
 			<input
 				type="text"

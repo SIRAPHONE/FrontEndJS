@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>Order</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -14,7 +14,7 @@
         <!-- <li><a class="active" href="#home">Home</a></li> -->
         <li><a href="/products">Product</a></li>
         <li><a href="/orders">Order</a></li>
-        <li><a href="/orderDetails">OrderDetail</a></li>
+        <li><a href="/promotion">Promotion</a></li>
         <li><a href="/customers">Customer</a></li>
       </ul>
     <div class="container">
@@ -26,6 +26,7 @@
                     <th>OrderID</th>
                     <th>Custimer Name</th>
                     <th>Product Amount</th>
+                    <th>Promotion Code</th>
                     <th>Product Total</th>
                     <th>OrderDetail</th>
                     <th>Edit</th>
@@ -43,8 +44,11 @@
                             <%= orders[i].TotalAmount %>
                         </td> 
                         <td>
+                            <%=orders[i].Promotion.PromotionCode %>
+                        </td> 
+                        <td>
                             <%= 
-                                (orders[i].TotalAmount * orders[i].Product.Price).toFixed(2)
+                                (orders[i].TotalAmount * orders[i].Product.Price - orders[i].Promotion.Discount).toFixed(2)
                             %>
                         </td>
                         <td>

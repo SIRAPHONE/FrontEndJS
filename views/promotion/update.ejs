@@ -1,0 +1,24 @@
+<!-- create.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Promotion</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Update Promotion</h1>
+    <form method="post" action="/promotion/update">
+      <label for="Firstname">Promotion Code:</label>
+      <input type="hidden" id="customerName" value="<%= data.PromotionID %>" name="PromotionID"  required/>
+      <input type="text" id="customerName" value="<%= data.PromotionCode %>" name="PromotionCode" required/>
+      <br />
+      <label for="Discount">Discount:</label>
+      <input type="number" id="Discount" name="Discount" value="<%= data.Discount %>" required/>
+      <br />
+     
+      <br />
+      <input type="submit" value="Update" />
+    </form>
+      <a href="/promotion">Back to List</a>
+  </body>
+</html>
