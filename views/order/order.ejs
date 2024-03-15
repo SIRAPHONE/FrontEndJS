@@ -37,13 +37,15 @@
                             <%= orders[i].OrderID %>
                         </td>
                         <td>
-                            <%= orders[i].CustomerID %>
+                            <%= orders[i].Customer.CustomerName %>
                         </td>
                         <td>
-                            <%= orders[i].CustomerID %>
-                        </td>
+                            <%= orders[i].TotalAmount %>
+                        </td> 
                         <td>
-                            <%= orders[i].OrderdateID %>
+                            <%= 
+                                (orders[i].TotalAmount * orders[i].Product.Price).toFixed(2)
+                            %>
                         </td>
                         <td>
                             <a href="/update_O/<%= orders[i].OrderID %>">Detail</a>

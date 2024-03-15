@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Update Order</title>
-    <link rel="stylesheet" href="/style.css"/>
-  </head>
-  <body>
-    <h1>Update Order</h1>
-    <form method="post" action="/update_O/<%=  order.OrderID %>">
-      <label for="CustomerID">CustomerID:</label>
-      <input type="text" id="CustomerID" name="CustomerID" value="<%=  order.CustomerID %>" />
-      <br />
-      <label for="OrderdateID">OrderdateID:</label>
-      <input type="text" id="OrderdateID" name="OrderdateID" value="<%=  order.OrderdateID %>" />
-      <br />
-      <label for="TotalAmoount">TotalAmoount:</label>
-      <input type="text" id="TotalAmoount" name="TotalAmoount" value="<%=  order.TotalAmoount %>" />
-      <br />
-      <input type="submit" value="Update" />
-    </form>
-    <center>
-      <a href="/orders/<%=  order.orders %>">View</a>
-      <a href="/orders">Back to List</a>
-    </center>
-  </body>
+	<head>
+		<title>Update Order</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<h1>Update Order</h1>
+		<form method="post" action="/update_O/<%=  order.OrderID %>">
+			<label for="CustomerID">Customer Name:</label>
+            <select name="CustomerID" id="CustomerID">
+                <% for(let i=0; i < customers.length; i++) { 
+                  var selected = (customers[i].CustomerID == order.Customer.CustomerID) ? 'selected' : '';  
+                %>
+                    <option <%= selected %> value="<%= customers[i].CustomerID %>"><%= customers[i].CustomerName %></option>
+                <% } %>
+			</select>
+			<br />
+			<label for="ProductID">Product Name:</label>
+			<select name="ProductID" id="ProductID" onchange="updateQuantity()">
+                <% for(let i=0; i < products.length; i++) { 
+                  var selected = (products[i].ProductID == order.Product.ProductID) ? 'selected' : '';  
+                %>
+                    <option <%= selected %> value="<%= products[i].ProductID %>"><%= products[i].ProductName %></option>
+                <% } %>
+            </select>
+			<br />
+			<label for="TotalAmoount">TotalAmount:</label>
+			<input
+				type="text"
+				id="TotalAmount"
+				name="TotalAmount"
+				value="<%=  order.TotalAmount %>"
+			/>
+			<br />
+			<input type="submit" value="Update" />
+		</form>
+		<center>
+			<a href="/orders/<%=  order.orders %>">View</a>
+			<a href="/orders">Back to List</a>
+		</center>
+	</body>
 </html>
