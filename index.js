@@ -71,9 +71,11 @@ app.get("/order/create_O", async (req, res) => {
   try {
     const customers = await axios.get(base_url + "/customers");
     const products = await axios.get(base_url + "/products");
+    const promotion = await axios.get(base_url + "/Promotion");
     res.render("order/create_O", {
       customers: customers.data,
       products: products.data,
+	  promotion:promotion.data
     });
   } catch (err) {
     console.error(err);
@@ -87,6 +89,7 @@ app.post("/order/create_O", async (req, res) => {
       CustomerID: Number(req.body.CustomerID),
       ProductID: Number(req.body.ProductID),
       TotalAmount: Number(req.body.Quantity),
+      PromotionID: Number(req.body.PromotionID),
     };
 
     await axios.post(base_url + "/orders", data);
@@ -183,12 +186,15 @@ app.get("/update_O/:id", async (req, res) => {
     const response = await axios.get(base_url + "/orders/" + req.params.id);
     const customers = await axios.get(base_url + "/customers");
     const products = await axios.get(base_url + "/products");
+    const promotion = await axios.get(base_url + "/Promotion");
+
     console.log(response.data);
     console.log(customers.data);
     res.render("order/update_O", {
       order: response.data,
       customers: customers.data,
       products: products.data,
+      promotion: promotion.data,
     });
   } catch (err) {
     console.error(err);
@@ -212,6 +218,7 @@ app.post("/update_O/:id", async (req, res) => {
       CustomerID: req.body.CustomerID,
       ProductID: req.body.ProductID,
       TotalAmount: req.body.TotalAmount,
+      PromotionID: req.body.PromotionID,
     };
     await axios.put(base_url + "/orders/" + req.params.id, data);
     res.redirect("/orders");
@@ -318,4 +325,73 @@ app.get("/customer/deleteC/:id", async (req, res) => {
   }
 });
 
+app.get("/promotion",async(req,res)=>{
+	try{
+		const response =  await axios.get(base_url + "/Promotion" );
+		// res.redirect("/orders");
+
+		res.render("promotion/list", {data:response.data});
+	}catch(err){
+		res.send(err)
+	}
+})
+app.get("/promotion/create",async(req,res)=>{
+	try{
+		
+
+		res.render("promotion/create",);
+	}catch(err){
+		res.send(err)
+	}
+})
+
+app.get("/promotion/update/:id", async (req,res)=>{
+	try{
+		// console.log(23432);
+
+		const data = await axios.get(`${base_url}/Promotion/${req.params.id}`);
+		res.render("promotion/update",{data : data.data});
+	}catch(err){
+		res.send(err)
+	}
+})
+
+app.post("/promotion/create",async(req,res)=>{
+	try{
+		
+		const  data = {  
+			PromotionCode: req.body.PromotionCode,
+			Discount: req.body.Discount,
+	  };
+	  await axios.post(base_url+"/Promotion", data )
+	 res.redirect("/promotion",);
+	}catch(err){
+		res.send(err)
+	}
+})
+
+app.post("/promotion/update",async(req,res)=>{
+	try{
+		const  data = {
+			PromotionID: req.body.PromotionID,
+			PromotionCode: req.body.PromotionCode,
+			Discount: req.body.Discount,
+	  	};
+	  await axios.put(base_url+"/Promotion/"+req.body.PromotionID, data )
+	 res.redirect("/promotion");
+	}catch(err){
+		res.send(err)
+	}
+})
+
+app.get("/promotion/delete/:id", async (req, res) => {
+	try {
+		// console.log(req.params.id);
+	  await axios.delete(base_url + "/Promotion/" + req.params.id);
+	  res.redirect("/promotion");
+	} catch (err) {
+	  res.status(200).send(err.message);
+	//   console.log(err.message);
+	}
+  });
 app.listen(5500, () => console.log("http://localhost:5500"));

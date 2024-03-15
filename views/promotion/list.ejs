@@ -5,57 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Promption</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
     <ul>
-        <!-- <li><a class="active" href="#home">Home</a></li> -->
+        
         <li><a href="/products">Product</a></li>
         <li><a href="/orders">Order</a></li>
-        <!-- <li><a href="/orderDetails">OrderDetail</a></li> -->
         <li><a href="/promotion">Promotion</a></li>
-
         <li><a href="/customers">Customer</a></li>
       </ul>
     <div class="container">
 
         <div class="content">
-            <h1>PRODUCTS</h1>
-            <a href="product/create_P">Add Product</a>
+            <h1>PROMOTION</h1>
+            <a href="promotion/create">Add Promotion</a>
             <table>
                 <tr>
-                    <th>ProductID</th>
-                    <th>ProductName</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>StockQuantity</th>
+                    <th>NO</th>
+                    <th>Promotion Code</th>
+                    <th>Discount</th>
+                    
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <% for(let i=0; i < products.length; i++) { %>
+                <% for(let i=0; i < data.length; i++) { %>
                     <tr>
                         <td>
-                            <%= products[i].ProductID %>
+                            <%= i+1 %>
+                        </td>
+                        
+                        <td>
+                            <%= data[i].PromotionCode %>
                         </td>
                         <td>
-                            <%= products[i].ProductName %>
+                            <%= data[i].Discount %>
                         </td>
                         <td>
-                            <%= products[i].Description %>
+                            <a href="/promotion/update/<%= data[i].PromotionID %>">Edit</a>
                         </td>
                         <td>
-                            <%= (products[i].Price).toFixed(2) %>
-                        </td>
-                        <td>
-                            <%= products[i].StockQuantity %>
-                        </td>
-                        <td>
-                            <a href="/update_P/ <%= products[i].ProductID %>">Edit</a>
-                        </td>
-                        <td>
-                            <a href="/deleteP/<%= products[i].ProductID %>">Delete</a>
+                            <a href="/promotion/delete/<%= data[i].PromotionID %>">Delete</a>
                         </td>
                     </tr>
                     <% } %>

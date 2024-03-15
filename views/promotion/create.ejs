@@ -1,0 +1,23 @@
+<!-- create.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Promotion</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Create Promotion</h1>
+    <form method="post" action="/promotion/create">
+      <label for="Firstname">Promotion Code:</label>
+      <input type="text" id="customerName" name="PromotionCode" required/>
+      <br />
+      <label for="Discount">Discount:</label>
+      <input type="number" id="Discount" name="Discount" required/>
+      <br />
+     
+      <br />
+      <input type="submit" value="create" />
+    </form>
+      <a href="/customers">Back to List</a>
+  </body>
+</html>
