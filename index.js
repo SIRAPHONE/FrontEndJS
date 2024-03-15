@@ -298,4 +298,26 @@ app.get("/customer/deleteC/:id", async (req, res) => {
 	}
 });
 
+app.get("/promotion",async(req,res)=>{
+	try{
+		console.log(23432);
+		const response =  await axios.get(base_url + "/Promotion" );
+		// res.redirect("/orders");
+
+		res.render("promotion/list", {data:response.data});
+	}catch(err){
+		res.send(err)
+	}
+})
+app.get("/promotion",async(req,res)=>{
+	try{
+		
+
+		res.render("promotion/create",);
+	}catch(err){
+		res.send(err)
+	}
+})
+
+
 app.listen(5500, () => console.log("http://localhost:5500"));

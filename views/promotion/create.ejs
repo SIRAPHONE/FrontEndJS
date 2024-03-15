@@ -1,0 +1,24 @@
+<!-- create.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Customer</title>
+    <link rel="stylesheet" href="/style.css"/>
+  </head>
+  <body>
+    <h1>Create Customer</h1>
+    <form method="post" action="/create_C">
+      <label for="Firstname">Customer Name:</label>
+      <input type="text" id="customerName" name="customerName" required/>
+      <br />
+      <label for="Email">Email:</label>
+      <input type="text" id="Email" name="Email" required/>
+      <br />
+      <label for="Phone">Phone:</label>
+      <input type="text" id="Phone" name="Phone" required/>
+      <br />
+      <input type="submit" value="create" />
+    </form>
+      <a href="/customers">Back to List</a>
+  </body>
+</html>

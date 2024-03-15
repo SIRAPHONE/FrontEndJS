@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="/products">Product</a></li>
+        <li><a href="/orders">Order</a></li>
+        <li><a href="/orderDetails">OrderDetail</a></li>
+        <li><a href="/customers">Customer</a></li>
+      </ul>
+    <div class="container">
+
+        <div class="content">
+            <h1>PRODUCTS</h1>
+            <a href="product/create_P">Add Product</a>
+            <table>
+                <tr>
+                    <th>NO</th>
+                    <th>Promotion Code</th>
+                    <th>Discount</th>
+                    
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <% for(let i=0; i < data.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= i+1 %>
+                        </td>
+                        
+                        <td>
+                            <%= data[i].PromotionCode %>
+                        </td>
+                        <td>
+                            <%= data[i].Discount %>
+                        </td>
+                        <td>
+                            <a href="/update_P/ <%= data[i].PromotionID %>">Edit</a>
+                        </td>
+                        <td>
+                            <a href="/deleteP/<%= data[i].PromotionID %>">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
