@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 app.set("views", path.join(__dirname + "/views"));
 
+// const base_url = "http://10.104.17.251:3000";
 const base_url = "http://localhost:3000";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
