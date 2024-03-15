@@ -184,6 +184,16 @@ app.get("/update_O/:id", async (req, res) => {
 	}
 });
 
+app.get("/order_detail/:id", async (req, res) => {
+    try {
+		const response = await axios.get(base_url + "/orders/" + req.params.id);
+		console.log(response.data);
+        res.render("order/order_detail", { response: response.data });
+    } catch (error) {
+        res.status(500).send("Error");
+    }
+})
+
 app.post("/update_O/:id", async (req, res) => {
 	try {
 		const data = {

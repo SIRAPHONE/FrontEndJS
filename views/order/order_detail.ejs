@@ -1,0 +1,32 @@
+<!-- create.ejs -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Order</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<h1>Order Detail</h1>
+		<form method="post" action="create_O">
+			<label for="CustomerID">Customer Name</label>
+			<input type="text" value="<%= response.Customer.CustomerName %>" disabled>
+			<br />
+			<label for="OrderdateID">Product Name</label>
+			<input type="text" value="<%= response.Product.ProductName %>" disabled>
+			<br />
+            <label for="Quantity">Product Amount</label>
+            <input type="text" value="<%= response.TotalAmount %>" disabled>
+			<br />
+            <label for="Quantity">Order Date</label>
+            <%  const date = new Date(response.createdAt)
+                const year = date.getFullYear()
+                const month = date.getMonth() + 1
+                const day = date.getDate()%>
+            <input type="text" value="<%= `${day}/${month}/${year}` %>" 
+            disabled>
+			<br />
+			<!-- <input type="submit" value="create" /> -->
+		</form>
+		<a href="/orders">Back to List</a>
+	</body>
+</html>
